@@ -6,18 +6,19 @@ String BracketMatcher(String str) {
   str = str.replaceAll(exp, '');
   str = str.replaceAll(' ', '');
   var match = true;
-  while(match){
+  while (match) {
     var oldStr = str;
     str = str.replaceAll('()', '');
-    if(oldStr == str){
+    if (oldStr == str) {
       match = false;
     }
   }
   if (str.length > 0) return '0';
   return '1';
 }
-   
-// keep this function call here 
+
+// keep this function call here
 void main() {
-  print(BracketMatcher(stdin.readLineSync()));
+  String input = stdin.readLineSync() ?? '';
+  print(BracketMatcher(input));
 }

@@ -1,17 +1,15 @@
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *   int val;
- *   ListNode? next;
- *   ListNode([this.val = 0, this.next]);
- * }
- */
+class ListNode {
+  int val;
+  ListNode? next;
+  ListNode([this.val = 0, this.next]);
+}
+
 class Solution {
   ListNode? mergeKLists(List<ListNode?> lists) {
     int amount = lists.length;
     int interval = 1;
-    while (interval < amount){
-      for (int i = 0; i < amount - interval; i += interval*2){
+    while (interval < amount) {
+      for (int i = 0; i < amount - interval; i += interval * 2) {
         lists[i] = merge2Lists(lists[i], lists[i + interval]);
       }
       interval *= 2;
@@ -19,13 +17,13 @@ class Solution {
     return amount > 0 ? lists[0] : null;
   }
 
-  ListNode? merge2Lists(ListNode? l1, ListNode? l2){
+  ListNode? merge2Lists(ListNode? l1, ListNode? l2) {
     final head = ListNode(0);
     ListNode? point = head;
-    while (l1 != null && l2 != null){
+    while (l1 != null && l2 != null) {
       var firstValue = l1?.val ?? 0;
       var secondValue = l2?.val ?? 0;
-      if (firstValue <= secondValue){
+      if (firstValue <= secondValue) {
         point?.next = l1;
         l1 = l1.next;
       } else {
@@ -37,9 +35,9 @@ class Solution {
     }
 
     if (l2 != null) {
-      point?.next=l2;
+      point?.next = l2;
     } else {
-      point?.next=l1;
+      point?.next = l1;
     }
     return head.next;
   }
