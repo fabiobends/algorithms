@@ -19,7 +19,7 @@ class Solution {
       second = second?.next;
     }
 
-    first?.next = first?.next?.next;
+    first?.next = first.next?.next;
     return head;
   }
 }

@@ -9,13 +9,13 @@ class Solution {
     ListNode? pointer = head;
     final result = <int>[];
     while (pointer != null) {
-      result.add(pointer?.val ?? 0);
-      pointer = pointer?.next;
+      result.add(pointer.val);
+      pointer = pointer.next;
     }
     int length = result.length;
     ListNode? temp = null;
     ListNode? dummy = ListNode(0);
-    dummy?.next = head;
+    dummy.next = head;
     ListNode? prev = dummy;
     ListNode? curr = head;
     for (int i = 0; i < (length / 2).floor(); i++) {
@@ -26,6 +26,6 @@ class Solution {
       prev = curr;
       curr = curr?.next;
     }
-    return dummy?.next;
+    return dummy.next;
   }
 }

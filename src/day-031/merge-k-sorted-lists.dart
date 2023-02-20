@@ -21,8 +21,8 @@ class Solution {
     final head = ListNode(0);
     ListNode? point = head;
     while (l1 != null && l2 != null) {
-      var firstValue = l1?.val ?? 0;
-      var secondValue = l2?.val ?? 0;
+      var firstValue = l1.val;
+      var secondValue = l2.val;
       if (firstValue <= secondValue) {
         point?.next = l1;
         l1 = l1.next;

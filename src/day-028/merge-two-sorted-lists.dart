@@ -11,14 +11,14 @@ class Solution {
     ListNode head = ListNode();
     ListNode? pointer = head;
     while (list1 != null && list2 != null) {
-      var firstValue = list1?.val ?? 0;
-      var secondValue = list2?.val ?? 0;
+      var firstValue = list1.val;
+      var secondValue = list2.val;
       if (firstValue > secondValue) {
         pointer?.next = list2;
-        list2 = list2?.next;
+        list2 = list2.next;
       } else {
         pointer?.next = list1;
-        list1 = list1?.next;
+        list1 = list1.next;
       }
       pointer = pointer?.next;
     }
